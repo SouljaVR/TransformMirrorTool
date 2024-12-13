@@ -82,9 +82,9 @@ Save and load mirroring configurations:
    - Remove unused pairs to maintain editor performance
    - Stop mirroring when not actively using the tool
 
-## Things to note:
-- While the tool should be fine, it has not been tested super extensively. I am not responsible for anything bad that may happen to your unity project because of this, make backups!
-- Tested in Unity 2022.3.22f1
+## Things to note/issues:
+- While the tool should be fine, it has not been tested super extensively. I am not responsible for anything bad that may happen to your unity project because of this, make backups! Tested in Unity 2022.3.22f1
+- If you scrub through the animation timeline **while** recording + mirroring enabled, tons of keyframes will get recorded if there are existing keyframes that move the source object. This is because the system is essentially recording itself in a loop, so just don't do this lol.
 - Mirroring is based on world space transformations
 - Scale changes are mirrored proportionally
 - Preset system relies on object names for reference
