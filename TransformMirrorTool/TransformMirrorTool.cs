@@ -2,8 +2,6 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class TransformPair
