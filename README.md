@@ -42,9 +42,9 @@ Required Files:
      **OR**
 
    - Select two objects in the hierarchy, right-click and choose "Add Pair to Transform Mirror Tool". This option will only appear if **two** gameobjects are selected.
-3. Assign your source and target objects
-4. Click "Start Mirroring" to begin real-time mirroring. Moving the base object will copy/mirror the same movement on the target object. The target object cannot be moved manually while mirroring is enabled. This system works when recording animations too.
-5. Click stop mirroring when you are done. The transforms will reset back to their original states.
+1. Assign your source and target objects
+2. Click "Start Mirroring" to begin real-time mirroring. Moving the base object will copy/mirror the same movement on the target object. The target object cannot be moved manually while mirroring is enabled. This system works when recording animations too.
+3. Click stop mirroring when you are done. The transforms will reset back to their original states.
 
 ### Mirror Settings
 
@@ -83,7 +83,8 @@ Save and load mirroring configurations:
    - Stop mirroring when not actively using the tool
 
 ## Things to note:
-
+- While the tool should be fine, it has not been tested super extensively. I am not responsible for anything bad that may happen to your unity project because of this, make backups!
+- Tested in Unity 2022.3.22f1
 - Mirroring is based on world space transformations
 - Scale changes are mirrored proportionally
 - Preset system relies on object names for reference
