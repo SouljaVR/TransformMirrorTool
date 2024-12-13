@@ -165,7 +165,7 @@ public class TransformMirrorTool : EditorWindow
         #region Transform Pairs Management
         GUILayout.Label("Transform Pairs", EditorStyles.boldLabel);
 
-        scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Height(750));
+        scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Height(600));
         for (int i = 0; i < transformPairs.Count; i++)
         {
             DrawPair(transformPairs[i], i);
