@@ -2,6 +2,8 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class TransformPair
@@ -218,7 +220,7 @@ public class TransformMirrorTool : EditorWindow
 
         // Object Fields
         GUILayout.BeginHorizontal();
-        GUILayout.Label("Base Object", GUILayout.Width(80));
+        GUILayout.Label("Source Object", GUILayout.Width(80));
         pair.baseObject = (GameObject)EditorGUILayout.ObjectField(pair.baseObject, typeof(GameObject), true);
         GUILayout.EndHorizontal();
 
@@ -337,6 +339,9 @@ public class TransformMirrorTool : EditorWindow
     {
         if (!isMirroring) return;
 
+        // Check if we're recording an animation
+        bool isRecording = AnimationMode.InAnimationMode();
+
         foreach (var pair in transformPairs)
         {
             if (pair.baseObject == null || pair.targetObject == null)
@@ -390,6 +395,15 @@ public class TransformMirrorTool : EditorWindow
                     pair.initialTargetScale.y * (pair.mirrorY ? scaleDelta.y : scaleDelta.y),
                     pair.initialTargetScale.z * (pair.mirrorZ ? scaleDelta.z : scaleDelta.z)
                 );
+
+				// Record changes for animation if we're recording
+				if (isRecording)
+				{
+					Undo.RecordObject(targetTransform, "Mirror Transform");
+					EditorUtility.SetDirty(targetTransform);
+					UnityEditor.EditorApplication.QueuePlayerLoopUpdate();
+					SceneView.RepaintAll();
+				}
 
                 // Apply transforms
                 Undo.RecordObject(targetTransform, "Mirror Transform");

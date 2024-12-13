@@ -9,7 +9,6 @@ public class TransformPairData
     public bool mirrorX = true;
     public bool mirrorY = true;
     public bool mirrorZ = true;
-    public bool useDeltaTransform = false;
 
     public bool bypassXPosition = false;
     public bool bypassYPosition = false;
